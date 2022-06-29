@@ -33,7 +33,7 @@ struct BalanceView: View {
                     Text("\(myWallet.balance)")
                         .frame(maxWidth:.infinity)
                         .font(Font.system(.body, design: .rounded))
-                        .foregroundColor(Color.gray)
+                        .foregroundColor(Color.secondary)
                         .privacySensitive()
                 }
                 

@@ -38,6 +38,7 @@ struct WalletsView: View {
                         }
                     }
                 }.pickerStyle(.inline)
+                    .accentColor(.accentColor) // <-- Does not work!
                     .labelsHidden()
                     .onChange(of: currentWallet) { _ in dismiss() } // Dimiss Sheet
             }

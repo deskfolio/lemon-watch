@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CardLostView: View {
+struct CardPausedView: View {
     
     @State private var showAlert = false
     @ObservedObject var myCard: Card
@@ -32,7 +32,7 @@ struct CardLostView: View {
             }.alert(isPresented: $showAlert) { // Alert View
                 
                 Alert.sideBySideButtons(title: Text(alertMessage), primaryButton: .default(Text("Activar")){
-                    myCard.isLost.toggle()
+                    myCard.isPaused.toggle()
                     WKInterfaceDevice.current().play(.success) // Play sound
                 }, secondaryButton: .cancel(Text("No")))
                 
@@ -44,6 +44,6 @@ struct CardLostView: View {
 
 struct CardLostView_Previews: PreviewProvider {
     static var previews: some View {
-        CardLostView(myCard: Card(isLost: false, number: ""))
+    CardPausedView(myCard: Card(isPaused: false, isFlagged: false, number: ""))
     }
  }

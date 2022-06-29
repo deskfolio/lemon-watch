@@ -38,6 +38,6 @@ struct LemonCardView: View {
 
 struct LemonCardView_Previews: PreviewProvider {
     static var previews: some View {
-        LemonCardView(myCard: Card(isLost: false, number: ""))
+        LemonCardView(myCard: Card(isPaused: false, isFlagged: false, number: ""))
     }
  }

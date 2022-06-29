@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F8050AF0286BBA6300F6FCA1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8050AEF286BBA6300F6FCA1 /* Extensions.swift */; };
+		F86FD026286C47C30002F8F2 /* CardFlaggedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FD025286C47C30002F8F2 /* CardFlaggedView.swift */; };
 		F8E9F79A27D2E1A40056FD70 /* Lemon.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F8E9F79927D2E1A40056FD70 /* Lemon.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F8E9F79F27D2E1A60056FD70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8E9F79E27D2E1A60056FD70 /* Assets.xcassets */; };
 		F8E9F7A527D2E1A60056FD70 /* Lemon WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F8E9F7A427D2E1A60056FD70 /* Lemon WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -25,7 +26,7 @@
 		F8E9F7CE27D58AB30056FD70 /* WalletsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9F7CD27D58AB30056FD70 /* WalletsView.swift */; };
 		F8E9F7D027D5C3240056FD70 /* CardSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9F7CF27D5C3240056FD70 /* CardSettingsView.swift */; };
 		F8E9F7D827D734720056FD70 /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9F7D727D734720056FD70 /* Classes.swift */; };
-		F8E9F7DA27D884C20056FD70 /* CardLostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9F7D927D884C20056FD70 /* CardLostView.swift */; };
+		F8E9F7DA27D884C20056FD70 /* CardPausedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9F7D927D884C20056FD70 /* CardPausedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 
 /* Begin PBXFileReference section */
 		F8050AEF286BBA6300F6FCA1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F86FD025286C47C30002F8F2 /* CardFlaggedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFlaggedView.swift; sourceTree = "<group>"; };
 		F8E9F79527D2E1A40056FD70 /* Lemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E9F79927D2E1A40056FD70 /* Lemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E9F79E27D2E1A60056FD70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,7 +92,7 @@
 		F8E9F7CD27D58AB30056FD70 /* WalletsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsView.swift; sourceTree = "<group>"; };
 		F8E9F7CF27D5C3240056FD70 /* CardSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSettingsView.swift; sourceTree = "<group>"; };
 		F8E9F7D727D734720056FD70 /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
-		F8E9F7D927D884C20056FD70 /* CardLostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLostView.swift; sourceTree = "<group>"; };
+		F8E9F7D927D884C20056FD70 /* CardPausedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPausedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,12 +106,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F86FD027286C51840002F8F2 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				F8E9F7AD27D2E1A60056FD70 /* NotificationController.swift */,
+				F8E9F7AF27D2E1A60056FD70 /* NotificationView.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		F86FD028286C51A00002F8F2 /* Complications */ = {
+			isa = PBXGroup;
+			children = (
+				F8E9F7B127D2E1A60056FD70 /* ComplicationController.swift */,
+			);
+			path = Complications;
+			sourceTree = "<group>";
+		};
 		F8AA647E27E89E340026932E /* Card */ = {
 			isa = PBXGroup;
 			children = (
 				F8E9F7C927D35C5C0056FD70 /* LemonCardView.swift */,
 				F8E9F7CF27D5C3240056FD70 /* CardSettingsView.swift */,
-				F8E9F7D927D884C20056FD70 /* CardLostView.swift */,
+				F8E9F7D927D884C20056FD70 /* CardPausedView.swift */,
+				F86FD025286C47C30002F8F2 /* CardFlaggedView.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -159,9 +179,8 @@
 				F8E9F7AB27D2E1A60056FD70 /* ContentView.swift */,
 				F8AA647E27E89E340026932E /* Card */,
 				F8AA647F27E89EC50026932E /* Wallet */,
-				F8E9F7AD27D2E1A60056FD70 /* NotificationController.swift */,
-				F8E9F7AF27D2E1A60056FD70 /* NotificationView.swift */,
-				F8E9F7B127D2E1A60056FD70 /* ComplicationController.swift */,
+				F86FD027286C51840002F8F2 /* Notifications */,
+				F86FD028286C51A00002F8F2 /* Complications */,
 				F8E9F7B327D2E1A60056FD70 /* Assets.xcassets */,
 				F8E9F7B827D2E1A60056FD70 /* Info.plist */,
 				F8E9F7B927D2E1A60056FD70 /* PushNotificationPayload.apns */,
@@ -308,7 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8E9F7DA27D884C20056FD70 /* CardLostView.swift in Sources */,
+				F8E9F7DA27D884C20056FD70 /* CardPausedView.swift in Sources */,
 				F8E9F7AE27D2E1A60056FD70 /* NotificationController.swift in Sources */,
 				F8E9F7D827D734720056FD70 /* Classes.swift in Sources */,
 				F8E9F7AC27D2E1A60056FD70 /* ContentView.swift in Sources */,
@@ -316,6 +335,7 @@
 				F8E9F7CA27D512B90056FD70 /* LemonCardView.swift in Sources */,
 				F8E9F7CE27D58AB30056FD70 /* WalletsView.swift in Sources */,
 				F8050AF0286BBA6300F6FCA1 /* Extensions.swift in Sources */,
+				F86FD026286C47C30002F8F2 /* CardFlaggedView.swift in Sources */,
 				F8E9F7B227D2E1A60056FD70 /* ComplicationController.swift in Sources */,
 				F8E9F7AA27D2E1A60056FD70 /* LemonApp.swift in Sources */,
 				F8E9F7B027D2E1A60056FD70 /* NotificationView.swift in Sources */,

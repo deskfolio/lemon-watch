@@ -13,7 +13,6 @@ struct CardSettingsView: View {
     @ObservedObject var myCard: Card
     
     let titleText : String = "¿No encontrás tu Lemon Card?"
-    
     let messageText : String = "No te preocupes. Si perdiste control momentáneo sobre tu tarjeta, pausala hasta que la recuperes, y así evitar consumos sin tu consentimiento."
     
     var body: some View {
@@ -32,7 +31,7 @@ struct CardSettingsView: View {
                     .font(.body)
                 Spacer()
                 Button("Pausar Tarjeta"){
-                    myCard.isLost.toggle()
+                    myCard.isPaused.toggle()
                     dismiss()
                 }.foregroundColor(Color.accentColor)
                     .cornerRadius(9)
@@ -46,6 +45,6 @@ struct CardSettingsView: View {
 
 struct CardSettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        CardSettingsView(myCard: Card(isLost: false, number: ""))
+        CardSettingsView(myCard: Card(isPaused: false, isFlagged: false, number: ""))
     }
  }

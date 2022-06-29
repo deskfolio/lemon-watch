@@ -16,7 +16,7 @@ struct ContentView: View {
     
     var body: some View {
         
-        if (!myCard.isLost) {
+        if (!myCard.isPaused && !myCard.isFlagged) {
             TabView {
                 LemonCardView(myCard: myCard)
                     .navigationTitle(firstTitle).navigationBarTitleDisplayMode(.inline).tag(1)
@@ -24,8 +24,11 @@ struct ContentView: View {
                     .navigationTitle(secondTitle).navigationBarTitleDisplayMode(.inline).tag(2)
             }.navigationTitle(firstTitle)
                 .navigationBarTitleDisplayMode(.inline).tabViewStyle(PageTabViewStyle())
+        } else if (myCard.isPaused){
+            CardPausedView(myCard: myCard)
+                .navigationTitle(firstTitle).navigationBarTitleDisplayMode(.inline)
         } else {
-            CardLostView(myCard: myCard)
+            CardFlaggedView(myCard: myCard)
                 .navigationTitle(firstTitle).navigationBarTitleDisplayMode(.inline)
         }
     }
@@ -33,6 +36,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(myCard: Card(isLost: false, number: ""))
+        ContentView(myCard: Card(isPaused: false, isFlagged: false, number: ""))
     }
 }

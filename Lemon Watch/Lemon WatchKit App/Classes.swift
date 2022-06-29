@@ -9,11 +9,13 @@ import Foundation
 
 class Card: ObservableObject {
     
-    @Published var isLost = false
+    @Published var isPaused = false // Paused: User manually paused the card
+    @Published var isFlagged = false // Flagged: Reported as Lost or Stolen by the user (also unavailable, user doesn't have a card yet)
     @Published var number : String = ""
     
-    init(isLost: Bool, number: String) {
-            self.isLost = isLost
+    init(isPaused: Bool, isFlagged: Bool, number: String) {
+            self.isPaused = isPaused
+            self.isFlagged = isFlagged
             self.number = "**** 1415"
         }
 }
