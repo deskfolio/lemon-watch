@@ -26,30 +26,20 @@ struct WalletsView: View {
             
             Section(header: Text(headerText), footer: Text(footerText)){
                 
-                // Coins List
-                
-                ForEach(walletsObject.wallets, id: \.id) { wallets in
-                    Button(action: {
-                        currentWallet = wallets.id
-                        dismiss()
-                    }){
+                // Coins Picker
+                Picker("", selection: $currentWallet) {
+                    ForEach(walletsObject.wallets, id: \.id) { wallet in
                         HStack(spacing:8){
-                            Image("\(wallets.image)")
-                                .privacySensitive()
+                            Image("\(wallet.image)")
                             HStack(spacing:2){
-                                Text(wallets.coin+" (\(wallets.name))")
+                                Text(wallet.coin+" (\(wallet.name))")
                                     .lineLimit(1)
-                            }.privacySensitive()
-                            
-                            if (currentWallet == wallets.id) {
-                                Spacer()
-                                Image(systemName: "checkmark").imageScale(.medium) // Selection icon
-                                    .foregroundColor(Color.accentColor)
-                                    .font(.system(size: 18, weight: .bold))
                             }
                         }
                     }
-                }
+                }.pickerStyle(.inline)
+                    .labelsHidden()
+                    .onChange(of: currentWallet) { _ in dismiss() } // Dimiss Sheet
             }
         }
     }
