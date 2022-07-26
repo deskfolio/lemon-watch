@@ -8,14 +8,17 @@
 import Foundation
 
 class Card: ObservableObject {
-    
-    @Published var isPaused = false // Paused: User manually paused the card
-    @Published var isFlagged = false // Flagged: Reported as Lost or Stolen by the user (also unavailable, user doesn't have a card yet)
+
     @Published var number : String = ""
+    @Published var status = status.active
     
-    init(isPaused: Bool, isFlagged: Bool, number: String) {
-            self.isPaused = isPaused
-            self.isFlagged = isFlagged
+    enum status {
+        case active
+        case paused // Paused: User manually paused the card
+        case flagged // Flagged: Reported  by the user as permanently Lost or Stolen (also unavailable? User may not have a card yet)
+    }
+    
+    init(number: String, status: status) {
             self.number = "**** 1415"
         }
 }

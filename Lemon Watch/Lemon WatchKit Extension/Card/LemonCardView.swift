@@ -16,9 +16,7 @@ struct LemonCardView: View {
         
         HStack(alignment:.center){
             VStack(alignment: .center, spacing:5){
-                
                 Spacer()
-                
                 Button(action: {
                     self.showingModalView.toggle()
                 }){
@@ -38,6 +36,6 @@ struct LemonCardView: View {
 
 struct LemonCardView_Previews: PreviewProvider {
     static var previews: some View {
-        LemonCardView(myCard: Card(isPaused: false, isFlagged: false, number: ""))
+        LemonCardView(myCard: Card(number: "", status: .active))
     }
  }

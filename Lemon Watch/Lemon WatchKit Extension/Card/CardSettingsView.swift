@@ -10,6 +10,7 @@ import SwiftUI
 struct CardSettingsView: View {
     
     @Environment(\.dismiss) private var dismiss
+    
     @ObservedObject var myCard: Card
     
     let titleText : String = "¿No encontrás tu Lemon Card?"
@@ -31,7 +32,7 @@ struct CardSettingsView: View {
                     .font(.body)
                 Spacer()
                 Button("Pausar Tarjeta"){
-                    myCard.isPaused.toggle()
+                    myCard.status = .paused
                     dismiss()
                 }.foregroundColor(Color.accentColor)
                     .cornerRadius(9)
@@ -45,6 +46,6 @@ struct CardSettingsView: View {
 
 struct CardSettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        CardSettingsView(myCard: Card(isPaused: false, isFlagged: false, number: ""))
+        CardSettingsView(myCard: Card(number: "", status: .active))
     }
  }

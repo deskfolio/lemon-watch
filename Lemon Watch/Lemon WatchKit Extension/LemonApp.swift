@@ -12,7 +12,7 @@ struct LemonApp: App {
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView{
-                ContentView(myCard: Card(isPaused: false, isFlagged: false, number: ""))
+                ContentView(myCard: Card(number: "", status: .active))
             }
         }
         WKNotificationScene(controller: NotificationController.self, category: "myCategory")

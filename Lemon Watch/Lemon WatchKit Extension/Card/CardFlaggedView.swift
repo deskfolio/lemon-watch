@@ -28,6 +28,6 @@ struct CardFlaggedView: View {
 
 struct CardFlaggedView_Previews: PreviewProvider {
     static var previews: some View {
-        CardFlaggedView(myCard: Card(isPaused: false, isFlagged: false, number: ""))
+        CardFlaggedView(myCard: Card(number: "", status: .active))
     }
 }

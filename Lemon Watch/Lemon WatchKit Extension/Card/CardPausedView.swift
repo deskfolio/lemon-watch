@@ -32,7 +32,7 @@ struct CardPausedView: View {
             }.alert(isPresented: $showAlert) { // Alert View
                 
                 Alert.sideBySideButtons(title: Text(alertMessage), primaryButton: .default(Text("Activar")){
-                    myCard.isPaused.toggle()
+                    myCard.status = .active
                     WKInterfaceDevice.current().play(.success) // Play sound
                 }, secondaryButton: .cancel(Text("No")))
                 
@@ -44,6 +44,6 @@ struct CardPausedView: View {
 
 struct CardLostView_Previews: PreviewProvider {
     static var previews: some View {
-    CardPausedView(myCard: Card(isPaused: false, isFlagged: false, number: ""))
+        CardPausedView(myCard: Card(number: "", status: .active))
     }
  }
