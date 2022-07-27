@@ -23,7 +23,9 @@ struct CardPausedView: View {
             
             VStack(alignment: .center, spacing:5){
                 Image("Lemon-card")
-                    .resizable().aspectRatio(contentMode: .fill).frame(width: 35, height: 60).padding(.vertical)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 35, height: 60).padding(.vertical)
                 Text(titleText)
                     .padding(.horizontal).font(.body).multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
                 Text(subtitleText)

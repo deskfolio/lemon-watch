@@ -14,28 +14,37 @@ struct LemonCardView: View {
     
     var body: some View {
         
-        HStack(alignment:.center){
-            VStack(alignment: .center, spacing:5){
+        HStack(alignment:.top){
+            VStack(alignment: .center, spacing:8){
                 Spacer()
                 Button(action: {
                     self.showingModalView.toggle()
                 }){
                     Image("Lemon-card")
-                        .resizable().frame(width: 70, height: 110).shadow(color: .accentColor.opacity(0.25), radius: 35, x: 0, y: 5.0)
-                }.padding(.all).buttonStyle(PlainButtonStyle())
+                        .resizable()
+                        .frame(width: 70, height: 110)
+                        .aspectRatio(contentMode: .fit)
+                        //.scaledToFit()
+                        .shadow(color: .accentColor.opacity(0.22), radius: 35, x: 0, y: 5.0)
+                }.padding(.top)
+                    .buttonStyle(PlainButtonStyle())
                 Text(myCard.number)
+                    .font(Font.system(.body, design: .rounded))
                     .foregroundColor(.secondary)
                     .privacySensitive()
-                
-            }.sheet(isPresented: $showingModalView) {
-                CardSettingsView(myCard : myCard)
+                //.padding(.top,20)
             }
+        }.sheet(isPresented: $showingModalView) {
+            CardSettingsView(myCard : myCard)
         }
-    }
+         
+    }/*.toolbar {
+        Text("AAAA")
+    }*/
 }
 
 struct LemonCardView_Previews: PreviewProvider {
     static var previews: some View {
         LemonCardView(myCard: Card(number: "", status: .active))
     }
- }
+}

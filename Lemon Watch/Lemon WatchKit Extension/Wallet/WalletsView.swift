@@ -30,18 +30,25 @@ struct WalletsView: View {
                 Picker("", selection: $currentWallet) {
                     ForEach(walletsObject.wallets, id: \.id) { wallet in
                         HStack(spacing:8){
-                            Image("\(wallet.image)")
+                            Image("\(wallet.coin)")
                             HStack(spacing:2){
                                 Text(wallet.coin+" (\(wallet.name))")
                                     .lineLimit(1)
                             }
-                        }
+                        }.foregroundColor(Color.primary)
                     }
                 }.pickerStyle(.inline)
-                    .accentColor(.accentColor) // <-- Does not work!
+                    .foregroundColor(Color.accentColor)
+                    //.accentColor(.accentColor) // <-- Does not work!
                     .labelsHidden()
                     .onChange(of: currentWallet) { _ in dismiss() } // Dimiss Sheet
             }
         }
     }
 }
+
+struct WalletsView_Previews: PreviewProvider {
+    static var previews: some View {
+        WalletsView(currentWallet: .constant(0))
+    }
+ }
